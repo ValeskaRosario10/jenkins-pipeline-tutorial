@@ -1,0 +1,55 @@
+java code...
+public class Calc{
+public static void main(String[] args){
+int num1 = Integer.parseInt(args[0]);
+int num2 = Integer.parseInt(args[1]);
+int sum = num1 + num2;
+System.out.println("The sum of " + num1 + " and " + num2 + " is: " + sum);
+}
+}
+
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Introduction') {
+            steps {
+                script {
+                    def name = "Alister Fernandes"
+                    def age = 18
+                    def occupation = "Student"
+
+                    echo "Hello, my name is ${name}."
+                    echo "I am ${age} years old."
+                    echo "I am a ${occupation}."
+                }
+            }
+        }
+
+        stage('Hobbies') {
+            steps {
+                script {
+                    def hobbies = ["reading", "sports", "coding"]
+                    echo "Some of my hobbies include: ${hobbies.join(', ')}."
+                }
+            }
+        }
+
+        stage('Goals') {
+            steps {
+                script {
+                    def goals = "to excel in my studies and pursue a successful career."
+                    echo "My goal is: ${goals}."
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Thank you for listening to my introduction!'
+        }
+    }
+}
