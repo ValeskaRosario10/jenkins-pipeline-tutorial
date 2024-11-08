@@ -77,3 +77,9 @@ int sum = num1 + num2;
 System.out.println("The sum of " + num1 + " and " + num2 + " is: " + sum);
 }
 }
+
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+scoop bucket add hookdeck https://github.com/hookdeck/scoop-hookdeck-cli.git
+hookdeck listen 8080
+
+
