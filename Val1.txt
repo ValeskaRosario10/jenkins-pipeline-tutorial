@@ -1,0 +1,79 @@
+FROM ubuntu:latest
+MAINTAINER "Alister Fernandes"
+RUN apt update -y
+RUN apt install nginx -y
+EXPOSE 80
+COPY index.html /usr/share/nginx/html/index.html
+COPY index.html /var/www/html/index.html
+CMD ["nginx", "-g", "daemon off;"]
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Alister Fernandes</h1>
+    <h2>INFT A 25</h2>
+</body>
+</html>
+
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Introduction') {
+            steps {
+                script {
+                    def name = "Alister Fernandes"
+                    def age = 18
+                    def occupation = "Student"
+
+                    echo "Hello, my name is ${name}."
+                    echo "I am ${age} years old."
+                    echo "I am a ${occupation}."
+                }
+            }
+        }
+
+        stage('Hobbies') {
+            steps {
+                script {
+                    def hobbies = ["reading", "sports", "coding"]
+                    echo "Some of my hobbies include: ${hobbies.join(', ')}."
+                }
+            }
+        }
+
+        stage('Goals') {
+            steps {
+                script {
+                    def goals = "to excel in my studies and pursue a successful career."
+                    echo "My goal is: ${goals}."
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Thank you for listening to my introduction!'
+        }
+    }
+}
+
+
+public class Calc{
+public static void main(String[] args){
+int num1 = Integer.parseInt(args[0]);
+int num2 = Integer.parseInt(args[1]);
+int sum = num1 + num2;
+System.out.println("The sum of " + num1 + " and " + num2 + " is: " + sum);
+}
+}
